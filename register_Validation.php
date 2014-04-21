@@ -9,6 +9,7 @@ class Process {
         session_start();
         if (isset($_POST['form1']))
             $this->validateForm();
+       
     }
 
     function validateForm() {
@@ -104,6 +105,7 @@ class Process {
                 $_SESSION['user_Name']= $user_Name;
                 header("Location: user_Index.php");
             } 
+                }
            
             else 
                 {
@@ -112,7 +114,7 @@ class Process {
             }
         }
         }
-    }
+    
 
 }
 $process = new Process;

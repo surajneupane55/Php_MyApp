@@ -30,11 +30,7 @@ class Edit_Process {
         } else {
             $lastname = $user_detail[$count]['lastname'];
         }
-        if (!empty($_POST['inputusername'])) {
-            $username = $_POST['inputusername'];
-        } else {
-            $username = $user_detail[$count]['userName'];
-        }
+       
         if (!empty($_POST['inputadress'])) {
             $address = $_POST['inputadress'];
         } else {
@@ -63,7 +59,7 @@ class Edit_Process {
 
 
         global $data;
-        $data->edit_User($firstname, $lastname, $username, $address, $city, $zip, $country, $email);
+        $data->edit_User($firstname, $lastname, $address, $city, $zip, $country, $email);
         if ($data->status_edit_msg() === true) {
             $_SESSION["edit_user_message"] = " Profile Detail Updated";
             

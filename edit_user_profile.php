@@ -20,12 +20,7 @@ include_once("edit_form_process.php");
                         if ($edit_form_process->display_form()) {
                             ?> 
                             <form class="form-horizontal" role="form" name="edit_user" id="edit_user" action="user_edit_Process.php" method="post">
-                                <div class="form-group">
-                                    <label for="inputusername" class="col-sm-4 control-label">User Name</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="inputusername" name="inputusername" placeholder="<?php echo $user_detail[$count]['userName']; ?>">
-                                    </div>
-                                </div>
+                                
                                 <div class="form-group">
                                     <label for="inputfirstname" class="col-sm-4 control-label">First Name</label>
                                     <div class="col-sm-6">
