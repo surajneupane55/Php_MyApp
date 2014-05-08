@@ -135,7 +135,9 @@ class data {
         $user_detail = $_SESSION["user_detail"];
         $count = count($user_detail) - 1;
         $userId = $user_detail[$count]['userId'];
+        $username= $user_detail[$count]['userName'];
         $token = $user_detail[$count]['passWord'];
+         unset($_SESSION["user_detail"]);
 
         $this->dbh = $dbh;
 
@@ -161,8 +163,8 @@ WHERE userId=:userId;');
         if ($this->sth->execute()) {
             $this->message = true;     
             $this->updated_user($username, $token);
-            unset($_SESSION["user_detail"]);
-            $_SESSION["user_detail"] = $this->user;
+           
+            
         } else {
             $this->message = false;
         }
@@ -181,6 +183,7 @@ WHERE userId=:userId;');
         $this->sth->bindParam(':password', $password, PDO::PARAM_STR, 50);
         $this->sth->execute();
         $this->user = $this->sth->fetchAll();
+        $_SESSION["user_detail"] = $this->user;
     }
 
     function status_edit_msg() {

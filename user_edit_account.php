@@ -42,14 +42,16 @@ include_once("edit_user.php");
                                 unset($_SESSION['edit_user_message']);
                             }
                         }
+                        unset($_SESSION["Account_menu"]);
                         ?> 
                     </div>
                     <div class="col-md-3">
                            
                                         <?php
+                                       if( isset($_SESSION['profile_detail'])){
                                         $user_detail = $_SESSION["user_detail"];
                                          $count = count($user_detail) - 1;
-                                        if ($user_Process->profile_detail()) {
+                                         
                                             ?>   
                                             <div class="table-responsive">
                                                 <table class="table table-bordered">
@@ -73,8 +75,9 @@ include_once("edit_user.php");
                                                 </div>
 
                                                 <?php
-                                                unset($_SESSION['profile_detail']);
+                                                
                                             }
+                                            unset($_SESSION["profile_detail"]);
                                             ?>
                         <?php
                         
